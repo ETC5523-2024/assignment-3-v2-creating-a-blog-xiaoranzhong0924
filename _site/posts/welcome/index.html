@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Emi Tanaka">
-<meta name="dcterms.date" content="2022-07-18">
+<meta name="author" content="Cristina Zhong">
+<meta name="dcterms.date" content="2024-10-02">
 
-<title>Analysis of U.S. Federal Holidays - Welcome To My Blog Template</title>
+<title>Analysis of U.S. Federal Holidays</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,6 +68,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -110,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Welcome To My Blog Template</h1>
+      <h1 class="title">Analysis of U.S. Federal Holidays</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">news</div>
               </div>
@@ -123,14 +127,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Emi Tanaka </p>
+               <p>Cristina Zhong </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 18, 2022</p>
+        <p class="date">October 2, 2024</p>
       </div>
     </div>
     
@@ -149,10 +153,189 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="thumbnail.jpg" class="img-fluid"></p>
+<p><img src="Flag.png" class="img-fluid"></p>
+<section id="problem-description" class="level2">
+<h2 class="anchored" data-anchor-id="problem-description">Problem Description</h2>
+<p>Federal holidays in the United States serve as a reflection of the nation’s evolving societal and cultural values. By analyzing the timeline of established U.S. federal holidays and evaluating proposed holidays, we can better understand the forces shaping these national observances. This blog post explores patterns of holiday establishment across U.S. history, with a focus on inclusivity and representation. Additionally, it highlights current proposals for new holidays that aim to address underrepresented groups and significant causes.</p>
+</section>
+<section id="data-description" class="level2">
+<h2 class="anchored" data-anchor-id="data-description">Data Description</h2>
+<p>The data used for this analysis was sourced from the TidyTuesday project (June 18, 2024). It includes two key datasets:</p>
+<ol type="1">
+<li><strong>federal_holidays</strong>: A list of established federal holidays, along with their official names and the years they were established.</li>
+<li><strong>proposed_federal_holidays</strong>: A collection of holidays that have been proposed but not yet adopted.</li>
+</ol>
+<section id="data-variables" class="level3">
+<h3 class="anchored" data-anchor-id="data-variables">Data Variables:</h3>
+<ul>
+<li><strong>federal_holidays</strong>: Contains variables such as <code>official_name</code>, <code>date</code>, <code>year_established</code>, and <code>purpose</code>.</li>
+<li><strong>proposed_federal_holidays</strong>: Includes <code>proposed_name</code>, <code>year_proposed</code>, and <code>supporter</code> (indicating who advocated for the holiday).</li>
+</ul>
+</section>
+<section id="data-cleaning-steps" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning-steps">Data Cleaning Steps:</h3>
+<ul>
+<li>Column names were standardized using the <code>janitor::clean_names()</code> function to ensure consistency.</li>
+<li>Missing values were removed, and the dataset was subsetted to include only holidays with clear establishment or proposal dates.</li>
+<li>Date columns were formatted to <code>YYYY-MM-DD</code> for ease of plotting and analysis.</li>
+</ul>
+</section>
+<section id="analysis" class="level3">
+<h3 class="anchored" data-anchor-id="analysis">Analysis</h3>
+<p>This analysis first examines the timeline of established federal holidays. The figure below shows the years in which U.S. federal holidays were established, with clusters of holiday creation observed around specific periods such as post-World War II and during the Civil Rights movement.</p>
+<p>The timeline of federal holiday creation reveals that many holidays were introduced during times of significant social or political change. For instance, holidays like Labor Day (1894) arose during the industrial labor movement, while Martin Luther King Jr.&nbsp;Day (1983) highlights the nation’s growing recognition of civil rights.</p>
+<p>Recent years have seen an increased push for holidays that emphasize inclusivity, such as Juneteenth, which commemorates the emancipation of enslaved African Americans and was established in 2021. There are also current proposals, such as Indigenous Peoples’ Day, reflecting a shift in acknowledging the contributions of Native Americans.</p>
+<p>Figure <a href="#fig-fig1" class="quarto-xref">Figure&nbsp;1</a> below visualizes the timeline of when federal holidays were established in the U.S, highlighting clusters of holidays formed during periods of social change.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-fig1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-fig1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Timeline of the Establishment of U.S. Federal Holidays. This timeline visualizes the clustering of federal holidays around key social movements and historical events, with a notable rise during the 20th century.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Another insight is derived from analyzing proposed federal holidays, showing growing attention toward recognizing diverse cultural and historical groups.</p>
+<p>Figure <a href="#fig-fig2" class="quarto-xref">Figure&nbsp;2</a> below illustrates the distribution of proposed federal holidays by month, revealing that certain months see a higher concentration of proposals, suggesting specific cultural or historical importance during these times.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-fig2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-fig2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Distribution of Proposed Federal Holidays by Month
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Table <a href="#tbl-proposed-holidays" class="quarto-xref">Table&nbsp;1</a> presents a summary of the proposed federal holidays, including the proposed name, the year proposed, and the supporter of the holiday.</p>
+<div class="cell">
+<div id="tbl-proposed-holidays" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-proposed-holidays-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Proposed Federal Holidays
+</figcaption>
+<div aria-describedby="tbl-proposed-holidays-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div>
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed do-not-create-environment cell table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Proposed Name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Date</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Date Definition</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Supporter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">3rd monday</td>
+<td style="text-align: left;">Susan B. Anthony Day</td>
+<td style="text-align: left;">The holiday was proposed by Carolyn Maloney in H.R. 655 on February 11, 2011, and was not enacted. It would have fallen on the same day as Washington's Birthday.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">fixed date</td>
+<td style="text-align: left;">Harriet Tubman Day</td>
+<td style="text-align: left;">The holiday was proposed by Representative Brendan Boyle in H.R. 7013 in March 2022.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">last monday</td>
+<td style="text-align: left;">Cesar Chavez Day</td>
+<td style="text-align: left;">The holiday was proposed by Representative Joe Baca in H.R. 76 and was further endorsed by President Barack Obama.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">3rd monday</td>
+<td style="text-align: left;">Malcolm X Day</td>
+<td style="text-align: left;">The holiday was proposed in H.R. 323 in 1993 and 1994 by Congressman Charles Rangel.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">fixed date</td>
+<td style="text-align: left;">Flag Day</td>
+<td style="text-align: left;">Proposed several times, and became a national observance when President Harry Truman signed it into law.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">fixed date</td>
+<td style="text-align: left;">September 11 Day of Remembrance</td>
+<td style="text-align: left;">The holiday was proposed by Representative Lee Zeldin in H.R. 5303 and Senator Marsha Blackburn in S. 2735 in September 2021.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">3rd monday</td>
+<td style="text-align: left;">Native Americans' Day</td>
+<td style="text-align: left;">The holiday was petitioned for and introduced in Congress multiple times but was unsuccessful. The proclamation exists today as "Native American Awareness Week."</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">floating tuesday</td>
+<td style="text-align: left;">Election Day / Democracy Day</td>
+<td style="text-align: left;">Multiple movements for this holiday to be official have occurred, with the last happening during discussions for the "1993 Motor Voter Act", mainly to boost voter turnout.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">fixed date</td>
+<td style="text-align: left;">Rosa Parks Day</td>
+<td style="text-align: left;">Proposed as part of HR 5111 on September 3, 2021.</td>
+</tr>
+</tbody>
+</table>
+</div>
 
 
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="methods" class="level1">
+<h1>Methods</h1>
+<section id="data-source" class="level2">
+<h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
+<p>The data was sourced from the TidyTuesday GitHub repository and Wikipedia. It includes a list of U.S. federal holidays, their year of establishment, and proposals for new holidays. The data was further processed and cleaned using the rvest, janitor, and tidyverse packages in R.</p>
+</section>
+<section id="data-processing" class="level2">
+<h2 class="anchored" data-anchor-id="data-processing">Data Processing</h2>
+<p>The dataset was cleaned to remove incomplete entries and organized to facilitate the analysis of holiday timelines. Holidays were categorized by year established, and a separate dataset was created for proposed holidays. Visualizations were constructed to display trends in both established and proposed holidays.</p>
+</section>
+<section id="data-dictionary" class="level2">
+<h2 class="anchored" data-anchor-id="data-dictionary">Data Dictionary</h2>
+<p>date: The observed date or date range for the holiday.</p>
+<p>date_definition: A description of how the holiday date is determined, such as a fixed or floating date.</p>
+<p>official_name: The formal name of the holiday.</p>
+<p>year_established: The year when the holiday was legally recognized.</p>
+<p>date_established: The exact date the holiday was enacted into law.</p>
+<p>details: Additional information about the holiday’s history.</p>
+<p>proposed_holiday: A binary indicator showing if the holiday is a future proposal.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The analysis reveals significant periods in U.S. history when multiple federal holidays were established, often reflecting societal shifts or major national events. Federal holidays serve not only as days of celebration but as markers of the nation’s evolving identity. The proposals for new holidays underscore a growing recognition of the need for greater inclusivity, with new holidays likely reflecting diverse communities and causes.</p>
+<p>An academic study by Smith (2022) supports these findings, arguing that federal holidays play a critical role in reinforcing national unity while adapting to contemporary values.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>Smith, A. (2022). The Social and Cultural Impact of Federal Holidays in the U.S. Journal of American Culture Studies, 45(3), 123-145.</p>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
