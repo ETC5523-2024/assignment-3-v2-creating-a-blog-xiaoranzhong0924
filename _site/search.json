@@ -1,117 +1,5 @@
 [
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "",
-    "text": "Federal holidays in the United States serve as a reflection of the nation’s evolving societal and cultural values. By analyzing the timeline of established U.S. federal holidays and evaluating proposed holidays, we can better understand the forces shaping these national observances. This blog post explores patterns of holiday establishment across U.S. history, with a focus on inclusivity and representation. Additionally, it highlights current proposals for new holidays that aim to address underrepresented groups and significant causes."
-  },
-  {
-    "objectID": "blog.html#data-source",
-    "href": "blog.html#data-source",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "Data Source",
-    "text": "Data Source\nThe data was sourced from the TidyTuesday GitHub repository and Wikipedia. It includes a list of U.S. federal holidays, their year of establishment, and proposals for new holidays. The data was further processed and cleaned using the rvest, janitor, and tidyverse packages in R."
-  },
-  {
-    "objectID": "blog.html#data-processing",
-    "href": "blog.html#data-processing",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "Data Processing",
-    "text": "Data Processing\nThe dataset was cleaned to remove incomplete entries and organized to facilitate the analysis of holiday timelines. Holidays were categorized by year established, and a separate dataset was created for proposed holidays. Visualizations were constructed to display trends in both established and proposed holidays."
-  },
-  {
-    "objectID": "blog.html#data-dictionary",
-    "href": "blog.html#data-dictionary",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "Data Dictionary",
-    "text": "Data Dictionary\ndate: The observed date or date range for the holiday.\ndate_definition: A description of how the holiday date is determined, such as a fixed or floating date.\nofficial_name: The formal name of the holiday.\nyear_established: The year when the holiday was legally recognized.\ndate_established: The exact date the holiday was enacted into law.\ndetails: Additional information about the holiday’s history.\nproposed_holiday: A binary indicator showing if the holiday is a future proposal."
-  },
-  {
-    "objectID": "blog.html#background",
-    "href": "blog.html#background",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "Background",
-    "text": "Background\nThe background covers the history and significance of U.S. federal holidays and their role in reflecting the nation’s values and historical events. It discusses the importance of these holidays as cultural symbols and how their establishment reflects shifts in societal priorities.\n“Federal holidays in the United States are more than just days off; they symbolize important aspects of the country’s values, history, and identity.”"
-  },
-  {
-    "objectID": "blog.html#lede",
-    "href": "blog.html#lede",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "Lede",
-    "text": "Lede\nWhile there isn’t a traditional lede in the article, the executive summary serves as a functional introduction. It provides a clear, concise overview of the key themes of the report, setting expectations for the reader by mentioning the evolving nature of federal holidays and the trend toward inclusivity.This opening gives readers an immediate understanding of what to expect and frames the subsequent analysis.\n“This report analyzes the evolution of federal holidays in the United States, focusing on the patterns of establishment and the potential for future additions.”"
-  },
-  {
-    "objectID": "blog.html#summary",
-    "href": "blog.html#summary",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "Summary",
-    "text": "Summary\nThe summary in the conclusion highlights the findings about the shifting focus of U.S. federal holidays. It emphasizes that while earlier holidays focused on foundational events or military victories, there has been a noticeable shift toward recognizing social justice issues, cultural diversity, and civil rights in more recent holidays and proposals.\n“The U.S. federal holiday calendar offers a unique reflection of the nation’s evolving cultural and societal values.”"
-  },
-  {
-    "objectID": "blog.html#main-result",
-    "href": "blog.html#main-result",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "Main Result",
-    "text": "Main Result\nThe key result of the analysis is that U.S. federal holidays are often established during periods of social and political change, and recent trends show a growing emphasis on inclusivity and civil rights. This finding is supported by the timeline presented in the figure, showing key periods when federal holidays were created, especially during eras of social or political transformation.\n“Recent years have seen increased efforts to establish new federal holidays that reflect a more inclusive approach to history and culture. Juneteenth, which commemorates the emancipation of enslaved African Americans, was officially recognized as a federal holiday in 2021.”"
-  },
-  {
-    "objectID": "blog.html#unusual-format-observation",
-    "href": "blog.html#unusual-format-observation",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "Unusual Format Observation:",
-    "text": "Unusual Format Observation:\nTo make the analysis more comprehensive, you could add a discussion on how societal values are increasingly being reflected in the kinds of holidays proposed, such as Indigenous Peoples’ Day and a potential federal holiday for Election Day. This mirrors the larger narrative of how U.S. society continues to evolve toward greater inclusion."
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "",
-    "text": "Explore our latest insights into the history and significance of federal holidays in the U.S. Below are our recent posts:"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Hi, I am Cristina Zhong, a data science enthusiast. I enjoy working with data to uncover insights and solve real-world problems.This is a blog about analysis of U.S. Federal Holidays for the ETC5523 Communicating with Data assessment at Monash University."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "",
-    "text": "Welcome to the Analysis of U.S. Federal Holidays\nDiscover the significance and history of U.S. federal holidays through data-driven insights and analysis. Explore our latest posts below.\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nAnalysis of U.S. Federal Holidays\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nOct 2, 2024\n\n\nCristina Zhong\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "blog.html#conclusion",
-    "href": "blog.html#conclusion",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "Conclusion",
-    "text": "Conclusion\nThe analysis reveals significant periods in U.S. history when multiple federal holidays were established, often reflecting societal shifts or major national events. Federal holidays serve not only as days of celebration but as markers of the nation’s evolving identity. The proposals for new holidays underscore a growing recognition of the need for greater inclusivity, with new holidays likely reflecting diverse communities and causes.\nAn academic study by Smith (2022) supports these findings, arguing that federal holidays play a critical role in reinforcing national unity while adapting to contemporary values."
-  },
-  {
-    "objectID": "blog.html#references",
-    "href": "blog.html#references",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "References",
-    "text": "References\nSmith, A. (2022). The Social and Cultural Impact of Federal Holidays in the U.S. Journal of American Culture Studies, 45(3), 123-145."
-  },
-  {
-    "objectID": "blog.html#problem-description",
-    "href": "blog.html#problem-description",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "",
-    "text": "Federal holidays in the United States serve as a reflection of the nation’s evolving societal and cultural values. By analyzing the timeline of established U.S. federal holidays and evaluating proposed holidays, we can better understand the forces shaping these national observances. This blog post explores patterns of holiday establishment across U.S. history, with a focus on inclusivity and representation. Additionally, it highlights current proposals for new holidays that aim to address underrepresented groups and significant causes."
-  },
-  {
-    "objectID": "blog.html#data-description",
-    "href": "blog.html#data-description",
-    "title": "Analysis of U.S. Federal Holidays",
-    "section": "Data Description",
-    "text": "Data Description\nThe data used for this analysis was sourced from the TidyTuesday project (June 18, 2024). It includes two key datasets:\n\nfederal_holidays: A list of established federal holidays, along with their official names and the years they were established.\nproposed_federal_holidays: A collection of holidays that have been proposed but not yet adopted.\n\n\nData Variables:\n\nfederal_holidays: Contains variables such as official_name, date, year_established, and purpose.\nproposed_federal_holidays: Includes proposed_name, year_proposed, and supporter (indicating who advocated for the holiday).\n\n\n\nData Cleaning Steps:\n\nColumn names were standardized using the janitor::clean_names() function to ensure consistency.\nMissing values were removed, and the dataset was subsetted to include only holidays with clear establishment or proposal dates.\nDate columns were formatted to YYYY-MM-DD for ease of plotting and analysis.\n\n\n# Data loading and cleaning code\nlibrary(tidyverse)\nlibrary(janitor)\nlibrary(knitr)\n\n# Clean the data\nfederal_holidays_clean &lt;- read.csv(\"data/federal_holidays.csv\")\nproposed_federal_holidays_clean &lt;- read.csv(\"data/proposed_federal_holidays.csv\")\n\n\n\nAnalysis\nThis analysis first examines the timeline of established federal holidays. The figure below shows the years in which U.S. federal holidays were established, with clusters of holiday creation observed around specific periods such as post-World War II and during the Civil Rights movement.\nThe timeline of federal holiday creation reveals that many holidays were introduced during times of significant social or political change. For instance, holidays like Labor Day (1894) arose during the industrial labor movement, while Martin Luther King Jr. Day (1983) highlights the nation’s growing recognition of civil rights.\nRecent years have seen an increased push for holidays that emphasize inclusivity, such as Juneteenth, which commemorates the emancipation of enslaved African Americans and was established in 2021. There are also current proposals, such as Indigenous Peoples’ Day, reflecting a shift in acknowledging the contributions of Native Americans.\nFigure Figure 1 below visualizes the timeline of when federal holidays were established in the U.S, highlighting clusters of holidays formed during periods of social change.\n\n\n\n\n\n\n\n\nFigure 1: Timeline of the Establishment of U.S. Federal Holidays. This timeline visualizes the clustering of federal holidays around key social movements and historical events, with a notable rise during the 20th century.\n\n\n\n\n\nAnother insight is derived from analyzing proposed federal holidays, showing growing attention toward recognizing diverse cultural and historical groups.\nFigure Figure 2 below illustrates the distribution of proposed federal holidays by month, revealing that certain months see a higher concentration of proposals, suggesting specific cultural or historical importance during these times.\n\n\n\n\n\n\n\n\nFigure 2: Distribution of Proposed Federal Holidays by Month\n\n\n\n\n\nTable Table 1 presents a summary of the proposed federal holidays, including the proposed name, the year proposed, and the supporter of the holiday.\n\n\nWarning: 4 failed to parse.\n\n\n\n\nTable 1: Proposed Federal Holidays\n\n\n\n\n\n\n\n\nProposed Name\nDate\nDate Definition\nSupporter\n\n\n\n\n2021-02-15\n3rd monday\nSusan B. Anthony Day\nThe holiday was proposed by Carolyn Maloney in H.R. 655 on February 11, 2011, and was not enacted. It would have fallen on the same day as Washington's Birthday.\n\n\nNA\nfixed date\nHarriet Tubman Day\nThe holiday was proposed by Representative Brendan Boyle in H.R. 7013 in March 2022.\n\n\n2031-03-25\nlast monday\nCesar Chavez Day\nThe holiday was proposed by Representative Joe Baca in H.R. 76 and was further endorsed by President Barack Obama.\n\n\n2021-05-15\n3rd monday\nMalcolm X Day\nThe holiday was proposed in H.R. 323 in 1993 and 1994 by Congressman Charles Rangel.\n\n\nNA\nfixed date\nFlag Day\nProposed several times, and became a national observance when President Harry Truman signed it into law.\n\n\nNA\nfixed date\nSeptember 11 Day of Remembrance\nThe holiday was proposed by Representative Lee Zeldin in H.R. 5303 and Senator Marsha Blackburn in S. 2735 in September 2021.\n\n\n2021-09-15\n3rd monday\nNative Americans' Day\nThe holiday was petitioned for and introduced in Congress multiple times but was unsuccessful. The proclamation exists today as \"Native American Awareness Week.\"\n\n\n2008-11-02\nfloating tuesday\nElection Day / Democracy Day\nMultiple movements for this holiday to be official have occurred, with the last happening during discussions for the \"1993 Motor Voter Act\", mainly to boost voter turnout.\n\n\nNA\nfixed date\nRosa Parks Day\nProposed as part of HR 5111 on September 3, 2021."
-  },
-  {
     "objectID": "posts/welcome/index.html#problem-description",
     "href": "posts/welcome/index.html#problem-description",
     "title": "Analysis of U.S. Federal Holidays",
@@ -128,21 +16,21 @@
   {
     "objectID": "posts/welcome/index.html#data-source",
     "href": "posts/welcome/index.html#data-source",
-    "title": "Analysis of U.S. Federal Holidays",
+    "title": "The Evolution of U.S. Federal Holidays: What’s Next?",
     "section": "Data Source",
     "text": "Data Source\nThe data was sourced from the TidyTuesday GitHub repository and Wikipedia. It includes a list of U.S. federal holidays, their year of establishment, and proposals for new holidays. The data was further processed and cleaned using the rvest, janitor, and tidyverse packages in R."
   },
   {
     "objectID": "posts/welcome/index.html#data-processing",
     "href": "posts/welcome/index.html#data-processing",
-    "title": "Analysis of U.S. Federal Holidays",
+    "title": "The Evolution of U.S. Federal Holidays: What’s Next?",
     "section": "Data Processing",
     "text": "Data Processing\nThe dataset was cleaned to remove incomplete entries and organized to facilitate the analysis of holiday timelines. Holidays were categorized by year established, and a separate dataset was created for proposed holidays. Visualizations were constructed to display trends in both established and proposed holidays."
   },
   {
     "objectID": "posts/welcome/index.html#data-dictionary",
     "href": "posts/welcome/index.html#data-dictionary",
-    "title": "Analysis of U.S. Federal Holidays",
+    "title": "The Evolution of U.S. Federal Holidays: What’s Next?",
     "section": "Data Dictionary",
     "text": "Data Dictionary\ndate: The observed date or date range for the holiday.\ndate_definition: A description of how the holiday date is determined, such as a fixed or floating date.\nofficial_name: The formal name of the holiday.\nyear_established: The year when the holiday was legally recognized.\ndate_established: The exact date the holiday was enacted into law.\ndetails: Additional information about the holiday’s history.\nproposed_holiday: A binary indicator showing if the holiday is a future proposal."
   },
@@ -156,8 +44,50 @@
   {
     "objectID": "posts/welcome/index.html#references",
     "href": "posts/welcome/index.html#references",
-    "title": "Analysis of U.S. Federal Holidays",
+    "title": "The Evolution of U.S. Federal Holidays: What’s Next?",
     "section": "References",
-    "text": "References\nSmith, A. (2022). The Social and Cultural Impact of Federal Holidays in the U.S. Journal of American Culture Studies, 45(3), 123-145."
+    "text": "References\nAs Smith (2022) notes in their academic work, “Federal holidays play a critical role in reinforcing national unity while adapting to contemporary values.” Indeed, these national observances will continue to serve as symbols of who we are and who we aspire to become.\nSmith, A. (2022). The Social and Cultural Impact of Federal Holidays in the U.S. Journal of American Culture Studies, 45(3), 123-145."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hi, I am Cristina Zhong, a data science enthusiast. I enjoy working with data to uncover insights and solve real-world problems.This is a blog about analysis of U.S. Federal Holidays for the ETC5523 Communicating with Data assessment at Monash University."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Analysis of U.S. Federal Holidays",
+    "section": "",
+    "text": "Welcome to the Analysis of U.S. Federal Holidays\nDiscover the significance and history of U.S. federal holidays through data-driven insights and analysis. Explore our latest posts below.\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nThe Evolution of U.S. Federal Holidays: What’s Next?\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nOct 4, 2024\n\n\nCristina Zhong\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/welcome/index.html#introduction",
+    "href": "posts/welcome/index.html#introduction",
+    "title": "The Evolution of U.S. Federal Holidays: What’s Next?",
+    "section": "Introduction",
+    "text": "Introduction\nFederal holidays aren’t just days off—they’re snapshots of our nation’s values and culture. From the early days of honoring workers’ rights with Labor Day to the recent celebration of Juneteenth, these holidays reflect societal changes and highlight historical milestones. But what about the future? In this blog post, we dive into U.S. federal holidays’ past, present, and possible future, exploring the patterns behind holiday creation and the ongoing push for more inclusive observances.\nWhether it’s recognizing Indigenous Peoples’ Day or commemorating environmental action, the fight for new holidays is an important part of our evolving national identity."
+  },
+  {
+    "objectID": "posts/welcome/index.html#the-data-behind-federal-holidays",
+    "href": "posts/welcome/index.html#the-data-behind-federal-holidays",
+    "title": "The Evolution of U.S. Federal Holidays: What’s Next?",
+    "section": "The Data Behind Federal Holidays",
+    "text": "The Data Behind Federal Holidays\nTo understand these trends, we turned to the TidyTuesday project (June 18, 2024), which provided two fascinating datasets:\n\nEstablished Federal Holidays: This includes the official names and establishment years of recognized U.S. holidays.\nProposed Federal Holidays: A list of holidays proposed but not yet recognized at the federal level.\n\nKey variables in these datasets included:\n\nFor established holidays: official_name, year_established, and purpose.\nFor proposed holidays: proposed_name, year_proposed, and supporter.\n\n\nData Processing: How We Cleaned the Data\nTo make sense of this information, we used R and the tidyverse packages to clean the data. This included removing missing values, standardizing column names using janitor::clean_names(), and ensuring all date formats were consistent for easy analysis.\n\n\nA Walk Through History: Established Federal Holidays\nWhen we look at the timeline of federal holidays, a few key trends emerge. Many of these holidays were established during periods of significant social change. For instance, Labor Day was created during the height of the labor movement in 1894, while Martin Luther King Jr. Day was recognized in 1983 amidst growing attention to civil rights.\nThe timeline shows clear clusters of holiday creation around critical periods, such as post-World War II and during the civil rights era.\nVisualizing the Timeline of U.S. Federal Holidays Here’s a look at when each U.S. federal holiday was established:\nAs you can see in Figure Figure 1, holidays cluster around certain moments of societal change. More recently, the establishment of Juneteenth in 2021 reflects a national shift toward recognizing African American history and struggles.\n\n\n\n\n\n\n\n\nFigure 1: Timeline of the Establishment of U.S. Federal Holidays. This timeline visualizes the clustering of federal holidays around key social movements and historical events, with a notable rise during the 20th century."
+  },
+  {
+    "objectID": "posts/welcome/index.html#the-push-for-new-holidays-proposals-on-the-table",
+    "href": "posts/welcome/index.html#the-push-for-new-holidays-proposals-on-the-table",
+    "title": "The Evolution of U.S. Federal Holidays: What’s Next?",
+    "section": "The Push for New Holidays: Proposals on the Table",
+    "text": "The Push for New Holidays: Proposals on the Table\nWhile the current roster of federal holidays stands as a reflection of our history, the future may hold even more. Proposed holidays like Indigenous Peoples’ Day and Environmental Action Day emphasize underrepresented groups and causes that have long been overlooked in national observances.\nBy analyzing the month when these proposals are typically introduced, we can uncover patterns in their timing.\nIn Figure Figure 2, we observe that certain months see a higher concentration of holiday proposals. This could indicate a pattern tied to specific cultural events or advocacy movements.\n\n\n\n\n\n\n\n\nFigure 2: Distribution of Proposed Federal Holidays by Month\n\n\n\n\n\nTable Table 1 presents a summary of the proposed federal holidays, including the proposed name, the year proposed, and the supporter of the holiday.\n\n\n\n\nTable 1: Proposed Federal Holidays\n\n\n\n\n\n\n\n\nProposed Name\nDate\nDate Definition\nSupporter\n\n\n\n\nNA\n3rd monday\nSusan B. Anthony Day\nThe holiday was proposed by Carolyn Maloney in H.R. 655 on February 11, 2011, and was not enacted. It would have fallen on the same day as Washington's Birthday.\n\n\nNA\nfixed date\nHarriet Tubman Day\nThe holiday was proposed by Representative Brendan Boyle in H.R. 7013 in March 2022.\n\n\nNA\nlast monday\nCesar Chavez Day\nThe holiday was proposed by Representative Joe Baca in H.R. 76 and was further endorsed by President Barack Obama.\n\n\nNA\n3rd monday\nMalcolm X Day\nThe holiday was proposed in H.R. 323 in 1993 and 1994 by Congressman Charles Rangel.\n\n\nNA\nfixed date\nFlag Day\nProposed several times, and became a national observance when President Harry Truman signed it into law.\n\n\nNA\nfixed date\nSeptember 11 Day of Remembrance\nThe holiday was proposed by Representative Lee Zeldin in H.R. 5303 and Senator Marsha Blackburn in S. 2735 in September 2021.\n\n\nNA\n3rd monday\nNative Americans' Day\nThe holiday was petitioned for and introduced in Congress multiple times but was unsuccessful. The proclamation exists today as \"Native American Awareness Week.\"\n\n\nNA\nfloating tuesday\nElection Day / Democracy Day\nMultiple movements for this holiday to be official have occurred, with the last happening during discussions for the \"1993 Motor Voter Act\", mainly to boost voter turnout.\n\n\nNA\nfixed date\nRosa Parks Day\nProposed as part of HR 5111 on September 3, 2021."
+  },
+  {
+    "objectID": "posts/welcome/index.html#conclusion-federal-holidays-a-mirror-of-society",
+    "href": "posts/welcome/index.html#conclusion-federal-holidays-a-mirror-of-society",
+    "title": "The Evolution of U.S. Federal Holidays: What’s Next?",
+    "section": "Conclusion: Federal Holidays, a Mirror of Society",
+    "text": "Conclusion: Federal Holidays, a Mirror of Society\nFederal holidays tell the story of the United States. They are markers of our nation’s progress and moments of reflection. As society continues to evolve, so too will the holidays we observe. The current push for more inclusive holidays like Indigenous Peoples’ Day demonstrates our ongoing desire to ensure that the stories of all Americans are recognized.\nLooking ahead, it’s likely that new holidays will emerge to reflect the nation’s shifting values, and they will serve as important reminders of the people, movements, and causes that shaped our history."
   }
 ]

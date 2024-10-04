@@ -7,7 +7,7 @@ website:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/etc5523-2022
+        href: https://github.com/ETC5523-2024/assignment-3-v2-creating-a-blog-xiaoranzhong0924
 format:
   html:
     theme: cosmo

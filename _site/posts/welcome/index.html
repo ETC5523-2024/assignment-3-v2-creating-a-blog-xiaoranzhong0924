@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Cristina Zhong">
-<meta name="dcterms.date" content="2024-10-02">
+<meta name="dcterms.date" content="2024-10-04">
 
-<title>Analysis of U.S. Federal Holidays</title>
+<title>Analysis of U.S. Federal Holidays - The Evolution of U.S. Federal Holidays: What’s Next?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/etc5523-2022"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/ETC5523-2024/assignment-3-v2-creating-a-blog-xiaoranzhong0924"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -114,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Analysis of U.S. Federal Holidays</h1>
+      <h1 class="title">The Evolution of U.S. Federal Holidays: What’s Next?</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">news</div>
               </div>
@@ -134,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 2, 2024</p>
+        <p class="date">October 4, 2024</p>
       </div>
     </div>
     
@@ -154,38 +154,33 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><img src="Flag.png" class="img-fluid"></p>
-<section id="problem-description" class="level2">
-<h2 class="anchored" data-anchor-id="problem-description">Problem Description</h2>
-<p>Federal holidays in the United States serve as a reflection of the nation’s evolving societal and cultural values. By analyzing the timeline of established U.S. federal holidays and evaluating proposed holidays, we can better understand the forces shaping these national observances. This blog post explores patterns of holiday establishment across U.S. history, with a focus on inclusivity and representation. Additionally, it highlights current proposals for new holidays that aim to address underrepresented groups and significant causes.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Federal holidays aren’t just days off—they’re snapshots of our nation’s values and culture. From the early days of honoring workers’ rights with <strong>Labor Day</strong> to the recent celebration of <strong>Juneteenth</strong>, these holidays reflect societal changes and highlight historical milestones. But what about the future? In this blog post, we dive into U.S. federal holidays’ past, present, and possible future, exploring the patterns behind holiday creation and the ongoing push for more inclusive observances.</p>
+<p>Whether it’s recognizing Indigenous Peoples’ Day or commemorating environmental action, the fight for new holidays is an important part of our evolving national identity.</p>
 </section>
-<section id="data-description" class="level2">
-<h2 class="anchored" data-anchor-id="data-description">Data Description</h2>
-<p>The data used for this analysis was sourced from the TidyTuesday project (June 18, 2024). It includes two key datasets:</p>
-<ol type="1">
-<li><strong>federal_holidays</strong>: A list of established federal holidays, along with their official names and the years they were established.</li>
-<li><strong>proposed_federal_holidays</strong>: A collection of holidays that have been proposed but not yet adopted.</li>
-</ol>
-<section id="data-variables" class="level3">
-<h3 class="anchored" data-anchor-id="data-variables">Data Variables:</h3>
+<section id="the-data-behind-federal-holidays" class="level2">
+<h2 class="anchored" data-anchor-id="the-data-behind-federal-holidays">The Data Behind Federal Holidays</h2>
+<p>To understand these trends, we turned to the <strong>TidyTuesday</strong> project (June 18, 2024), which provided two fascinating datasets:</p>
 <ul>
-<li><strong>federal_holidays</strong>: Contains variables such as <code>official_name</code>, <code>date</code>, <code>year_established</code>, and <code>purpose</code>.</li>
-<li><strong>proposed_federal_holidays</strong>: Includes <code>proposed_name</code>, <code>year_proposed</code>, and <code>supporter</code> (indicating who advocated for the holiday).</li>
+<li><strong>Established Federal Holidays</strong>: This includes the official names and establishment years of recognized U.S. holidays.</li>
+<li><strong>Proposed Federal Holidays</strong>: A list of holidays proposed but not yet recognized at the federal level.</li>
 </ul>
-</section>
-<section id="data-cleaning-steps" class="level3">
-<h3 class="anchored" data-anchor-id="data-cleaning-steps">Data Cleaning Steps:</h3>
+<p>Key variables in these datasets included:</p>
 <ul>
-<li>Column names were standardized using the <code>janitor::clean_names()</code> function to ensure consistency.</li>
-<li>Missing values were removed, and the dataset was subsetted to include only holidays with clear establishment or proposal dates.</li>
-<li>Date columns were formatted to <code>YYYY-MM-DD</code> for ease of plotting and analysis.</li>
+<li>For established holidays: <code>official_name</code>, <code>year_established</code>, and <code>purpose</code>.</li>
+<li>For proposed holidays: <code>proposed_name</code>, <code>year_proposed</code>, and <code>supporter</code>.</li>
 </ul>
+<section id="data-processing-how-we-cleaned-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="data-processing-how-we-cleaned-the-data">Data Processing: How We Cleaned the Data</h3>
+<p>To make sense of this information, we used <strong>R</strong> and the <code>tidyverse</code> packages to clean the data. This included removing missing values, standardizing column names using <code>janitor::clean_names()</code>, and ensuring all date formats were consistent for easy analysis.</p>
 </section>
-<section id="analysis" class="level3">
-<h3 class="anchored" data-anchor-id="analysis">Analysis</h3>
-<p>This analysis first examines the timeline of established federal holidays. The figure below shows the years in which U.S. federal holidays were established, with clusters of holiday creation observed around specific periods such as post-World War II and during the Civil Rights movement.</p>
-<p>The timeline of federal holiday creation reveals that many holidays were introduced during times of significant social or political change. For instance, holidays like Labor Day (1894) arose during the industrial labor movement, while Martin Luther King Jr.&nbsp;Day (1983) highlights the nation’s growing recognition of civil rights.</p>
-<p>Recent years have seen an increased push for holidays that emphasize inclusivity, such as Juneteenth, which commemorates the emancipation of enslaved African Americans and was established in 2021. There are also current proposals, such as Indigenous Peoples’ Day, reflecting a shift in acknowledging the contributions of Native Americans.</p>
-<p>Figure <a href="#fig-fig1" class="quarto-xref">Figure&nbsp;1</a> below visualizes the timeline of when federal holidays were established in the U.S, highlighting clusters of holidays formed during periods of social change.</p>
+<section id="a-walk-through-history-established-federal-holidays" class="level3">
+<h3 class="anchored" data-anchor-id="a-walk-through-history-established-federal-holidays">A Walk Through History: Established Federal Holidays</h3>
+<p>When we look at the timeline of federal holidays, a few key trends emerge. Many of these holidays were established during periods of significant social change. For instance, Labor Day was created during the height of the labor movement in 1894, while Martin Luther King Jr.&nbsp;Day was recognized in 1983 amidst growing attention to civil rights.</p>
+<p>The timeline shows clear clusters of holiday creation around critical periods, such as post-World War II and during the civil rights era.</p>
+<p>Visualizing the Timeline of U.S. Federal Holidays Here’s a look at when each U.S. federal holiday was established:</p>
+<p>As you can see in Figure <a href="#fig-fig1" class="quarto-xref">Figure&nbsp;1</a>, holidays cluster around certain moments of societal change. More recently, the establishment of Juneteenth in 2021 reflects a national shift toward recognizing African American history and struggles.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-fig1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
@@ -200,8 +195,13 @@ Figure&nbsp;1: Timeline of the Establishment of U.S. Federal Holidays. This time
 </div>
 </div>
 </div>
-<p>Another insight is derived from analyzing proposed federal holidays, showing growing attention toward recognizing diverse cultural and historical groups.</p>
-<p>Figure <a href="#fig-fig2" class="quarto-xref">Figure&nbsp;2</a> below illustrates the distribution of proposed federal holidays by month, revealing that certain months see a higher concentration of proposals, suggesting specific cultural or historical importance during these times.</p>
+</section>
+</section>
+<section id="the-push-for-new-holidays-proposals-on-the-table" class="level2">
+<h2 class="anchored" data-anchor-id="the-push-for-new-holidays-proposals-on-the-table">The Push for New Holidays: Proposals on the Table</h2>
+<p>While the current roster of federal holidays stands as a reflection of our history, the future may hold even more. Proposed holidays like Indigenous Peoples’ Day and Environmental Action Day emphasize underrepresented groups and causes that have long been overlooked in national observances.</p>
+<p>By analyzing the month when these proposals are typically introduced, we can uncover patterns in their timing.</p>
+<p>In Figure <a href="#fig-fig2" class="quarto-xref">Figure&nbsp;2</a>, we observe that certain months see a higher concentration of holiday proposals. This could indicate a pattern tied to specific cultural events or advocacy movements.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-fig2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
@@ -303,7 +303,6 @@ Table&nbsp;1: Proposed Federal Holidays
 </div>
 </div>
 </section>
-</section>
 <section id="methods" class="level1">
 <h1>Methods</h1>
 <section id="data-source" class="level2">
@@ -324,13 +323,14 @@ Table&nbsp;1: Proposed Federal Holidays
 <p>details: Additional information about the holiday’s history.</p>
 <p>proposed_holiday: A binary indicator showing if the holiday is a future proposal.</p>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>The analysis reveals significant periods in U.S. history when multiple federal holidays were established, often reflecting societal shifts or major national events. Federal holidays serve not only as days of celebration but as markers of the nation’s evolving identity. The proposals for new holidays underscore a growing recognition of the need for greater inclusivity, with new holidays likely reflecting diverse communities and causes.</p>
-<p>An academic study by Smith (2022) supports these findings, arguing that federal holidays play a critical role in reinforcing national unity while adapting to contemporary values.</p>
+<section id="conclusion-federal-holidays-a-mirror-of-society" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-federal-holidays-a-mirror-of-society">Conclusion: Federal Holidays, a Mirror of Society</h2>
+<p>Federal holidays tell the story of the United States. They are markers of our nation’s progress and moments of reflection. As society continues to evolve, so too will the holidays we observe. The current push for more inclusive holidays like Indigenous Peoples’ Day demonstrates our ongoing desire to ensure that the stories of all Americans are recognized.</p>
+<p>Looking ahead, it’s likely that new holidays will emerge to reflect the nation’s shifting values, and they will serve as important reminders of the people, movements, and causes that shaped our history.</p>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
+<p>As Smith (2022) notes in their academic work, “Federal holidays play a critical role in reinforcing national unity while adapting to contemporary values.” Indeed, these national observances will continue to serve as symbols of who we are and who we aspire to become.</p>
 <p>Smith, A. (2022). The Social and Cultural Impact of Federal Holidays in the U.S. Journal of American Culture Studies, 45(3), 123-145.</p>
 
 
