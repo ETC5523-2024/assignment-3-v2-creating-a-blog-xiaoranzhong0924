@@ -1,13 +1,16 @@
 ---
 title: "Analysis of U.S. Federal Holidays"
 author: "Cristina Zhong"
-date: "date desc"
+date: "2024-10-04"  
 categories: [news]
 ---
 
+
 # Welcome to the Analysis of U.S. Federal Holidays
 
-Discover the significance and history of U.S. federal holidays through data-driven insights and analysis. 
+Federal holidays reflect the evolving story of the United States, marking our nation’s progress and inviting moments of reflection. As society changes, so too will the holidays we observe. The growing recognition of inclusive holidays, such as Indigenous Peoples' Day, highlights our commitment to honoring the diverse narratives of all Americans.
+
+Looking ahead, we anticipate new holidays emerging that will mirror our shifting values and remind us of the influential people, movements, and causes that have shaped our history. Join us as we delve into the significance of these holidays and their impact on our collective identity.
 
 ![](federal-holidays.png)
 

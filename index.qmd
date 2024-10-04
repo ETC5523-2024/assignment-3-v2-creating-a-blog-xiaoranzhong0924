@@ -14,7 +14,7 @@ title-block-banner: true
 
 # Welcome to the Analysis of U.S. Federal Holidays
 
-Discover the significance and history of U.S. federal holidays through data-driven insights and analysis. Explore our latest posts below.
+Discover the significance and history of U.S. federal holidays through data-driven insights and analysis. 
 
 
 
