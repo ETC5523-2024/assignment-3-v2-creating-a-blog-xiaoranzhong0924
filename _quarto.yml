@@ -5,13 +5,21 @@ website:
   title: "Analysis of U.S. Federal Holidays"
   navbar:
     right:
-      - about.qmd
+      - text: "About"
+        href: about.qmd
+      - text: "Home"
+        href: index.qmd
+      - text: "Blog"
+        href: blog.qmd
       - icon: github
-        href: https://github.com/ETC5523-2024/assignment-3-v2-creating-a-blog-xiaoranzhong0924
+        href: https://github.com/xiaoranzhong0924
+
 format:
   html:
     theme: cosmo
     css: styles.css
+
+
 
 
 
