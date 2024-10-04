@@ -6,12 +6,12 @@ website:
   title: "Analysis of U.S. Federal Holidays"
   navbar:
     right:
-      - text: "About"
-        href: about.qmd
       - text: "Home"
         href: index.qmd
       - text: "Blog"
         href: blog.qmd
+      - text: "About"
+        href: about.qmd
       - icon: github
         href: https://github.com/xiaoranzhong0924
 
