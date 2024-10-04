@@ -7,7 +7,8 @@ output:
   html_document:
     toc: true
     toc_depth: 2
-    css: "styles.css" 
+    css: "styles.css"
+output-dir: "D:/doc/5523Tutorial/assignment-3-v2-creating-a-blog-xiaoranzhong0924/"
 ---
 
 ![](Flag.png)
