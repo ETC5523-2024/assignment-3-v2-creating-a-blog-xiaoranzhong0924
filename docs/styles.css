@@ -1,66 +1,68 @@
 /* css styles */
+/* General Styling */
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   line-height: 1.75;
   color: #333;
-  background-color: #f4f4f9;  /* Soft light background */
+  background-color: #f9fafb;  /* Softer, lighter background */
   padding: 20px;
   margin: 0;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Navbar Styling */
 .navbar-dark, .quarto-title-banner {
-  background-color: #005f99; /* Rich Blue for Header and Navbar */
+  background-color: #005f99;
   color: #fff;
-  padding: 20px 10px;
+  padding: 15px;
   text-align: center;
   font-weight: 600;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
 
 /* Title Banner */
 .quarto-title-banner {
-  font-size: 2.4em;
-  margin-bottom: 30px;
+  font-size: 2.2em;
+  margin-bottom: 20px;
 }
 
 /* Headings */
 h1, h2, h3, h4 {
-  color: #003d66; /* Darker Blue for Headings */
+  color: #003d66;
   font-weight: bold;
 }
 
 h1 {
-  font-size: 2.6em;
+  font-size: 2.4em;
 }
 
 h2 {
-  font-size: 2.0em;
-  border-bottom: 2px solid #005f99; /* Underline for visual emphasis */
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  font-size: 1.8em;
+  border-bottom: 2px solid #005f99;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
 }
 
 h3 {
-  font-size: 1.6em;
+  font-size: 1.5em;
 }
 
 h4 {
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 /* Link Styles */
 a {
-  color: #ff5c5c; /* Bright and unique color for links */
+  color: #ff5c5c;
   text-decoration: none;
-  transition: color 0.3s ease; /* Smooth transition */
+  transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #cc4747; /* Slightly darker on hover */
+  color: #cc4747;
   text-decoration: underline;
 }
 
@@ -113,15 +115,18 @@ td {
 pre, code {
   background-color: #f5f5f5;
   border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 6px;
+  padding: 12px;
+  border-radius: 8px;
   font-family: "Courier New", Courier, monospace;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  white-space: pre-wrap; /* Wrap long lines */
 }
 
 pre {
-  overflow-x: auto;
-  max-width: 100%;
+  margin-bottom: 20px;
+  font-size: 1em;
+  overflow-x: auto; /* Ensure horizontal scroll on overflow */
 }
 
 /* Figures */
@@ -193,4 +198,3 @@ footer {
     font-size: 0.9em;
   }
 }
-

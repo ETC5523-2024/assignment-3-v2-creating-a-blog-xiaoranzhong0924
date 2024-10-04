@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -95,16 +129,16 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./blog.html" aria-current="page"> 
 <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/xiaoranzhong0924"> <i class="bi bi-github" role="img">
@@ -181,6 +215,76 @@ ul.task-list li input[type="checkbox"] {
 <section id="data-processing-how-we-cleaned-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="data-processing-how-we-cleaned-the-data">Data Processing: How We Cleaned the Data</h3>
 <p>To make sense of this information, we used <strong>R</strong> and the <code>tidyverse</code> packages to clean the data. This included removing missing values, standardizing column names using <code>janitor::clean_names()</code>, and ensuring all date formats were consistent for easy analysis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="st">'2024-06-18'</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#OR</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="dv">2024</span>, <span class="at">week =</span> <span class="dv">25</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>federal_holidays <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>federal_holidays</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>proposed_federal_holidays <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>proposed_federal_holidays</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(polite)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>working_dir <span class="ot">&lt;-</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"2024"</span>, <span class="st">"2024-06-18"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>session <span class="ot">&lt;-</span> polite<span class="sc">::</span><span class="fu">bow</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">user_agent =</span> <span class="st">"TidyTuesday (https://tidytues.day, jonthegeek+tidytuesday@gmail.com)"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">delay =</span> <span class="dv">0</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>holiday_tables <span class="ot">&lt;-</span> session <span class="sc">|&gt;</span> </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  polite<span class="sc">::</span><span class="fu">scrape</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_table</span>()</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>federal_holidays <span class="ot">&lt;-</span> holiday_tables[[<span class="dv">2</span>]] <span class="sc">|&gt;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">official_name =</span> <span class="st">"official_name_2"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate_wider_regex</span>(</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"date"</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">patterns =</span> <span class="fu">c</span>(</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">date =</span> <span class="st">"^[^(]+"</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>      <span class="st">"</span><span class="sc">\\</span><span class="st">("</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">date_definition =</span> <span class="st">"[^)]+"</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>      <span class="st">"</span><span class="sc">\\</span><span class="st">)$"</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_definition =</span> <span class="fu">tolower</span>(date_definition),</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">details =</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(details, <span class="st">"</span><span class="sc">\\</span><span class="st">[</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">]"</span>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">year_established =</span> stringr<span class="sc">::</span><span class="fu">str_extract</span>(date_established, <span class="st">"</span><span class="sc">\\</span><span class="st">d{4}"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.integer</span>(),</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_established =</span> stringr<span class="sc">::</span><span class="fu">str_extract</span>(</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>      date_established,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>      <span class="st">"^[A-Za-z]+ </span><span class="sc">\\</span><span class="st">d{1,2}, </span><span class="sc">\\</span><span class="st">d{4}"</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>      lubridate<span class="sc">::</span><span class="fu">mdy</span>(),</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">.before =</span> date_established,</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">.keep =</span> <span class="st">"unused"</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>proposed_federal_holidays <span class="ot">&lt;-</span> holiday_tables[[<span class="dv">3</span>]] <span class="sc">|&gt;</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate_wider_regex</span>(</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="st">"date"</span>,</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">patterns =</span> <span class="fu">c</span>(</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>      <span class="at">date =</span> <span class="st">"^[^(]+"</span>,</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>      <span class="st">"</span><span class="sc">\\</span><span class="st">("</span>,</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>      <span class="at">date_definition =</span> <span class="st">"[^)]+"</span>,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>      <span class="st">"</span><span class="sc">\\</span><span class="st">)$"</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_definition =</span> <span class="fu">tolower</span>(date_definition) <span class="sc">|&gt;</span> </span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>      stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">[</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">]"</span>),</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">details =</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(details, <span class="st">"</span><span class="sc">\\</span><span class="st">[</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">]"</span>)</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="a-walk-through-history-established-federal-holidays" class="level3">
 <h3 class="anchored" data-anchor-id="a-walk-through-history-established-federal-holidays">A Walk Through History: Established Federal Holidays</h3>
@@ -238,65 +342,89 @@ Table&nbsp;1: Proposed Federal Holidays
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Proposed Name</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Date</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Start Date</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">End Date</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Date Definition</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Supporter</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">3rd monday</td>
-<td style="text-align: left;">Susan B. Anthony Day</td>
-<td style="text-align: left;">The holiday was proposed by Carolyn Maloney in H.R. 655 on February 11, 2011, and was not enacted. It would have fallen on the same day as Washington's Birthday.</td>
+<td style="text-align: left;">New Year's Day</td>
+<td style="text-align: left;">January 1</td>
+<td style="text-align: left;">January 1</td>
+<td style="text-align: left;">fixed date</td>
+<td style="text-align: left;">Celebrates the beginning of the Gregorian calendar year. Festivities include counting down to 12:00 midnight on the preceding night, New Year's Eve, often with fireworks displays and parties. The ball drop at Times Square in New York City, broadcast live on television nationwide, has become a national New Year's festivity. Serves as the traditional end of the Christmas and holiday season.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">fixed date</td>
-<td style="text-align: left;">Harriet Tubman Day</td>
-<td style="text-align: left;">The holiday was proposed by Representative Brendan Boyle in H.R. 7013 in March 2022.</td>
+<td style="text-align: left;">Birthday of Martin Luther King, Jr.</td>
+<td style="text-align: left;">January 15</td>
+<td style="text-align: left;">January 21</td>
+<td style="text-align: left;">3rd monday</td>
+<td style="text-align: left;">Honors Dr. Martin Luther King Jr., a civil rights leader who was born on January 15, 1929. Some municipalities hold parades, and since the 1994 King Holiday and Service Act, it has become a day of citizen action volunteer service, sometimes referred to as the MLK Day of Service. The holiday is observed on the third Monday of January, and is combined with other holidays in several states.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Washington's Birthday</td>
+<td style="text-align: left;">February 15</td>
+<td style="text-align: left;">February 21</td>
+<td style="text-align: left;">3rd monday</td>
+<td style="text-align: left;">Honors George Washington, Founding Father, commander of the Continental Army, and the first U.S. president, who was born on February 22, 1732. In 1968, the Uniform Monday Holiday Act shifted the date of the commemoration from February 22 to the third Monday in February, meaning the observed holiday never falls on Washington's actual birthday. Because of this, combined with the fact that Abraham Lincoln's birthday falls on February 12, many now refer to this holiday as "Presidents' Day" and consider it a day honoring all American presidents. The official name has never been changed.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Memorial Day</td>
+<td style="text-align: left;">May 25</td>
+<td style="text-align: left;">May 31</td>
 <td style="text-align: left;">last monday</td>
-<td style="text-align: left;">Cesar Chavez Day</td>
-<td style="text-align: left;">The holiday was proposed by Representative Joe Baca in H.R. 76 and was further endorsed by President Barack Obama.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">3rd monday</td>
-<td style="text-align: left;">Malcolm X Day</td>
-<td style="text-align: left;">The holiday was proposed in H.R. 323 in 1993 and 1994 by Congressman Charles Rangel.</td>
+<td style="text-align: left;">Honors U.S. military personnel who have fought and died while serving in the United States Armed Forces. Many municipalities hold parades with marching bands and an overall military theme, and the day marks the unofficial beginning of the summer season. The holiday is observed on the last Monday in May.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Juneteenth</td>
+<td style="text-align: left;">June 19</td>
+<td style="text-align: left;">June 19</td>
 <td style="text-align: left;">fixed date</td>
-<td style="text-align: left;">Flag Day</td>
-<td style="text-align: left;">Proposed several times, and became a national observance when President Harry Truman signed it into law.</td>
+<td style="text-align: left;">Commemorates the emancipation of enslaved people in the United States on the anniversary of the 1865 date when emancipation was announced in Galveston, Texas. Celebratory traditions often include readings of the Emancipation Proclamation, singing traditional songs, rodeos, street fairs, family reunions, cookouts, park parties, historical reenactments, and Miss Juneteenth contests.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Independence Day</td>
+<td style="text-align: left;">July 4</td>
+<td style="text-align: left;">July 4</td>
 <td style="text-align: left;">fixed date</td>
-<td style="text-align: left;">September 11 Day of Remembrance</td>
-<td style="text-align: left;">The holiday was proposed by Representative Lee Zeldin in H.R. 5303 and Senator Marsha Blackburn in S. 2735 in September 2021.</td>
+<td style="text-align: left;">Celebrates the 1776 adoption of the Declaration of Independence from British rule. Parades, picnics, and cookouts are held during the day and fireworks are set off at night. On the day before this holiday, the stock market trading session ends three hours early.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">3rd monday</td>
-<td style="text-align: left;">Native Americans' Day</td>
-<td style="text-align: left;">The holiday was petitioned for and introduced in Congress multiple times but was unsuccessful. The proclamation exists today as "Native American Awareness Week."</td>
+<td style="text-align: left;">Labor Day</td>
+<td style="text-align: left;">September 1</td>
+<td style="text-align: left;">September 7</td>
+<td style="text-align: left;">1st monday</td>
+<td style="text-align: left;">Honors and recognizes the American labor movement. Over half of Americans celebrate Labor Day as the unofficial end of summer. Roughly 40% of employers require some employees to work on the holiday. The holiday is observed on the first Monday in September.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">floating tuesday</td>
-<td style="text-align: left;">Election Day / Democracy Day</td>
-<td style="text-align: left;">Multiple movements for this holiday to be official have occurred, with the last happening during discussions for the "1993 Motor Voter Act", mainly to boost voter turnout.</td>
+<td style="text-align: left;">Columbus Day</td>
+<td style="text-align: left;">October 8</td>
+<td style="text-align: left;">October 14</td>
+<td style="text-align: left;">2nd monday</td>
+<td style="text-align: left;">Honors Christopher Columbus, whose exploration of the Americas from 1492 to 1504 marked the beginning of large scale European immigration to the Americas. In some areas it is instead a celebration of Native Americans (Indigenous Peoples' Day). In other areas it celebrates Italian culture and heritage. The holiday is observed on the second Monday in October, and is one of two federal holidays where stock market trading is permitted.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Veterans Day</td>
+<td style="text-align: left;">November 11</td>
+<td style="text-align: left;">November 11</td>
 <td style="text-align: left;">fixed date</td>
-<td style="text-align: left;">Rosa Parks Day</td>
-<td style="text-align: left;">Proposed as part of HR 5111 on September 3, 2021.</td>
+<td style="text-align: left;">Honors all veterans of the United States armed forces. It is observed on November 11 due to its origins as Armistice Day, recalling the end of World War I on that date in 1918. Major hostilities of World War I were formally ended at 11:00, of the 11th day, of the 11th month of 1918, when the Armistice with Germany went into effect. It became Veterans Day after World War II. It is one of two federal holidays where stock market trading is permitted.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Thanksgiving Day</td>
+<td style="text-align: left;">November 22</td>
+<td style="text-align: left;">November 28</td>
+<td style="text-align: left;">4th thursday</td>
+<td style="text-align: left;">Traditionally celebrates the giving of thanks for the autumn harvest, and commonly includes the sharing of a turkey dinner. Several large parades are broadcast on television, and football games are often held. The holiday is observed on the fourth Thursday in November. On the day after this holiday, the stock market trading session ends three hours early.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Christmas Day</td>
+<td style="text-align: left;">December 25</td>
+<td style="text-align: left;">December 25</td>
+<td style="text-align: left;">fixed date</td>
+<td style="text-align: left;">The most widely celebrated holiday of the Christian year, Christmas is observed as a commemoration of the birth of Jesus Christ. Commonly celebrated by Christians and some non-Christians with various religious and secular traditions. On the day before this holiday, the stock market trading session ends three hours early.In some years where December 25 falls on a Thursday, Friday, Saturday, Sunday, or Monday, various presidents have issued executive orders declaring a one-time holiday on either Christmas Eve (December 24) or the Day after Christmas (December 26), to provide federal workers with a longer weekend.</td>
 </tr>
 </tbody>
 </table>

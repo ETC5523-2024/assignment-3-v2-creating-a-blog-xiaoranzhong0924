@@ -35,19 +35,18 @@ Key variables in these datasets included:
 To make sense of this information, we used **R** and the `tidyverse` packages to clean the data. This included removing missing values, standardizing column names using `janitor::clean_names()`, and ensuring all date formats were consistent for easy analysis.
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
-```{r, include=FALSE}
+```{r ,results='hide'}
 tuesdata <- tidytuesdayR::tt_load('2024-06-18')
-## OR
+#OR
 tuesdata <- tidytuesdayR::tt_load(2024, week = 25)
-
 federal_holidays <- tuesdata$federal_holidays
 proposed_federal_holidays <- tuesdata$proposed_federal_holidays
 ```
 
-```{r, include=FALSE}
+```{r,results='hide'}
 library(tidyverse)
 library(janitor)
 library(here)
@@ -168,10 +167,22 @@ proposed_holidays_by_month
 Table @tbl-proposed-holidays presents a summary of the proposed federal holidays, including the proposed name, the year proposed, and the supporter of the holiday.
 
 ```{r tbl-proposed-holidays, echo=FALSE,message=FALSE}
-proposed_federal_holidays$date <- parse_date_time(proposed_federal_holidays$date, orders = c("d-m-y", "m-d-y"))
+library(dplyr)
+library(stringr)
 
-knitr::kable(proposed_federal_holidays, 
-             col.names = c("Proposed Name", "Date", "Date Definition", "Supporter"),
+# Create new columns for start_date and end_date
+proposed_federal_holidays <- federal_holidays %>%
+  mutate(start_date = str_extract(date, "^[A-Za-z]+ \\d+"),  # Extract first date (e.g., "January 1")
+         end_date = str_extract(date, "\\d+$"),  # Extract second date (if present) from ranges like "February 15-21"
+         
+         # Handle end_date: If there's no range, use start_date; otherwise, append the extracted end date to the same month as start_date
+         end_date = ifelse(is.na(end_date), start_date, 
+                           paste(str_extract(start_date, "^[A-Za-z]+"), end_date)))
+
+
+knitr::kable(proposed_federal_holidays %>% 
+               select(official_name, start_date, end_date, date_definition, details),
+             col.names = c("Proposed Name", "Start Date", "End Date", "Date Definition", "Supporter"),
              caption = "Proposed Federal Holidays",
              format = "html") %>%
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
