@@ -1,0 +1,196 @@
+/* css styles */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.75;
+  color: #333;
+  background-color: #f4f4f9;  /* Soft light background */
+  padding: 20px;
+  margin: 0;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Navbar Styling */
+.navbar-dark, .quarto-title-banner {
+  background-color: #005f99; /* Rich Blue for Header and Navbar */
+  color: #fff;
+  padding: 20px 10px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 5px;
+}
+
+/* Title Banner */
+.quarto-title-banner {
+  font-size: 2.4em;
+  margin-bottom: 30px;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  color: #003d66; /* Darker Blue for Headings */
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2.6em;
+}
+
+h2 {
+  font-size: 2.0em;
+  border-bottom: 2px solid #005f99; /* Underline for visual emphasis */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.6em;
+}
+
+h4 {
+  font-size: 1.3em;
+}
+
+/* Link Styles */
+a {
+  color: #ff5c5c; /* Bright and unique color for links */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+a:hover {
+  color: #cc4747; /* Slightly darker on hover */
+  text-decoration: underline;
+}
+
+/* Paragraph Styling */
+p {
+  margin-bottom: 1.5em;
+  font-size: 1.1em;
+}
+
+/* Blockquote */
+blockquote {
+  font-style: italic;
+  border-left: 4px solid #005f99;
+  padding-left: 15px;
+  margin-left: 0;
+  color: #555;
+  background-color: #f0f8ff;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #005f99;
+  color: white;
+  font-weight: 600;
+}
+
+td {
+  color: #333;
+}
+
+/* Code Blocks */
+pre, code {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
+  font-family: "Courier New", Courier, monospace;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+pre {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Figures */
+figure {
+  text-align: center;
+  margin: 20px 0;
+}
+
+figcaption {
+  color: #777;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+/* Image Styling */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+button {
+  background-color: #ff5c5c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #cc4747;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #003d66;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 40px;
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .navbar-dark, .quarto-title-banner {
+    font-size: 1.6em;
+  }
+
+  h1 {
+    font-size: 2.0em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  pre {
+    font-size: 0.9em;
+  }
+}
+
