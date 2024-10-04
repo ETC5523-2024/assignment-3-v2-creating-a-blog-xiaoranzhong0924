@@ -9,6 +9,7 @@ output:
     toc_depth: 2
     css: "styles.css"
 ---
+
 ![](federal-holidays.png)
 
 ## Introduction
@@ -32,6 +33,7 @@ Key variables in these datasets included:
 ### Data Processing: How We Cleaned the Data
 
 To make sense of this information, we used **R** and the `tidyverse` packages to clean the data. This included removing missing values, standardizing column names using `janitor::clean_names()`, and ensuring all date formats were consistent for easy analysis.
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
@@ -109,6 +111,7 @@ proposed_federal_holidays <- holiday_tables[[3]] |>
   ) 
 ```
 
+
 ### A Walk Through History: Established Federal Holidays
 
 When we look at the timeline of federal holidays, a few key trends emerge. Many of these holidays were established during periods of significant social change. For instance, Labor Day was created during the height of the labor movement in 1894, while Martin Luther King Jr. Day was recognized in 1983 amidst growing attention to civil rights.
@@ -119,6 +122,7 @@ Visualizing the Timeline of U.S. Federal Holidays
 Here’s a look at when each U.S. federal holiday was established:
 
 As you can see in Figure @fig-fig1, holidays cluster around certain moments of societal change. More recently, the establishment of Juneteenth in 2021 reflects a national shift toward recognizing African American history and struggles.
+
 
 ```{r fig-fig1, echo=FALSE,message=FALSE, fig.cap="Timeline of the Establishment of U.S. Federal Holidays. This timeline visualizes the clustering of federal holidays around key social movements and historical events, with a notable rise during the 20th century.", fig.align='center'}
 
@@ -139,6 +143,7 @@ ggplot(federal_holidays, aes(x = year_established, y = reorder(official_name, ye
     axis.text = element_text(size = 14, color = "#4169E1")
   )
 ```
+
 ## The Push for New Holidays: Proposals on the Table
 
 While the current roster of federal holidays stands as a reflection of our history, the future may hold even more. Proposed holidays like Indigenous Peoples’ Day and Environmental Action Day emphasize underrepresented groups and causes that have long been overlooked in national observances.
@@ -146,6 +151,7 @@ While the current roster of federal holidays stands as a reflection of our histo
 By analyzing the month when these proposals are typically introduced, we can uncover patterns in their timing.
 
 In Figure @fig-fig2, we observe that certain months see a higher concentration of holiday proposals. This could indicate a pattern tied to specific cultural events or advocacy movements.
+
 
 ```{r echo=FALSE,message=FALSE,warning=FALSE,fig-fig2, fig.cap="Distribution of Proposed Federal Holidays by Month", fig.align='center'}
 
@@ -163,7 +169,9 @@ proposed_holidays_by_month <- proposed_federal_holidays %>%
 proposed_holidays_by_month
 ```
 
+
 Table @tbl-proposed-holidays presents a summary of the proposed federal holidays, including the proposed name, the year proposed, and the supporter of the holiday.
+
 
 ```{r tbl-proposed-holidays, echo=FALSE,message=FALSE}
 library(dplyr)
@@ -187,6 +195,7 @@ knitr::kable(proposed_federal_holidays %>%
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
                             full_width = FALSE)
 ```
+
 
 # Methods
 
@@ -225,6 +234,7 @@ Looking ahead, it’s likely that new holidays will emerge to reflect the nation
 As Smith (2022) notes in their academic work, "Federal holidays play a critical role in reinforcing national unity while adapting to contemporary values." Indeed, these national observances will continue to serve as symbols of who we are and who we aspire to become.
 
 Smith, A. (2022). The Social and Cultural Impact of Federal Holidays in the U.S. Journal of American Culture Studies, 45(3), 123-145.
+
 
 
 
